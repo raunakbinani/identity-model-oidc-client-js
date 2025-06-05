@@ -60,10 +60,10 @@ export class SigninRequest {
         if (oidc) {
             url = UrlUtility.addQueryParam(url, "nonce", this.state.nonce);
         }
-        if (code) {
-            url = UrlUtility.addQueryParam(url, "code_challenge", this.state.code_challenge);
-            url = UrlUtility.addQueryParam(url, "code_challenge_method", "S256");
-        }
+        // if (code) {
+        //     url = UrlUtility.addQueryParam(url, "code_challenge", this.state.code_challenge);
+        //     url = UrlUtility.addQueryParam(url, "code_challenge_method", "S256");
+        // }
 
         var optional = { prompt, display, max_age, ui_locales, id_token_hint, login_hint, acr_values, resource, request, request_uri, response_mode };
         for(let key in optional){
