@@ -21742,10 +21742,10 @@ var SigninRequest = exports.SigninRequest = function () {
         if (oidc) {
             url = _UrlUtility.UrlUtility.addQueryParam(url, "nonce", this.state.nonce);
         }
-        if (code) {
-            url = _UrlUtility.UrlUtility.addQueryParam(url, "code_challenge", this.state.code_challenge);
-            url = _UrlUtility.UrlUtility.addQueryParam(url, "code_challenge_method", "S256");
-        }
+        // if (code) {
+        //     url = _UrlUtility.UrlUtility.addQueryParam(url, "code_challenge", this.state.code_challenge);
+        //     url = _UrlUtility.UrlUtility.addQueryParam(url, "code_challenge_method", "S256");
+        // }
 
         var optional = { prompt: prompt, display: display, max_age: max_age, ui_locales: ui_locales, id_token_hint: id_token_hint, login_hint: login_hint, acr_values: acr_values, resource: resource, request: request, request_uri: request_uri, response_mode: response_mode };
         for (var key in optional) {
