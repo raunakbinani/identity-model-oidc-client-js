@@ -24,7 +24,7 @@ export class UserInfoService {
         this._joseUtil = joseUtil;
     }
 
-    getClaims(token) {
+    getClaims(token, tokenType) {
         if (!token) {
             Log.error("UserInfoService.getClaims: No token passed");
             return Promise.reject(new Error("A token is required"));
@@ -33,7 +33,7 @@ export class UserInfoService {
         return this._metadataService.getUserInfoEndpoint().then(url => {
             Log.debug("UserInfoService.getClaims: received userinfo url", url);
 
-            return this._jsonService.getJson(url, token).then(claims => {
+            return this._jsonService.getJson(url, token, tokenType).then(claims => {
                 Log.debug("UserInfoService.getClaims: claims received", claims);
                 return claims;
             });

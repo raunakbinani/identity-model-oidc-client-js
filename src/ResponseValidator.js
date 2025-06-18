@@ -147,7 +147,7 @@ export class ResponseValidator {
             if (state.skipUserInfo !== true && this._settings.loadUserInfo && response.access_token) {
                 Log.debug("ResponseValidator._processClaims: loading user info");
 
-                return this._userInfoService.getClaims(response.access_token).then(claims => {
+                return this._userInfoService.getClaims(response.access_token, response.token_type).then(claims => {
                     Log.debug("ResponseValidator._processClaims: user info claims received from user info endpoint");
 
                     if (claims.sub !== response.profile.sub) {

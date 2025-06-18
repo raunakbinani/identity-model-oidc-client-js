@@ -27,7 +27,7 @@ export class JsonService {
         this._jwtHandler = jwtHandler;
     }
 
-    getJson(url, token) {
+    getJson(url, token, tokenType = "Bearer") {
         if (!url){
             Log.error("JsonService.getJson: No url passed");
             throw new Error("url");
@@ -89,7 +89,7 @@ export class JsonService {
 
             if (token) {
                 Log.debug("JsonService.getJson: token passed, setting Authorization header");
-                req.setRequestHeader("Authorization", "Bearer " + token);
+                req.setRequestHeader("Authorization", tokenType + " " + token);
             }
 
             req.send();
